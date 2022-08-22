@@ -14,13 +14,6 @@ class Person
   end
 
   def can_use_services?
-    is_of_age? || @parent_permission ? true : false
+    self.is_of_age? || @parent_permission ? true : false
   end
 end
-
-person = Person.new('Rosely', 24)
-p person.name
-p person.id
-p person.age
-p person.is_of_age?
-p person.can_use_services?
