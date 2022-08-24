@@ -21,6 +21,10 @@ class App
     @list_of_people
   end
 
+  def list_rentals
+    @list_of_rentals
+  end
+
   def create_new_student(age, name, parent_permission)
     student = Student.new(@classroom, age, name, parent_permission)
     @list_of_people << student
