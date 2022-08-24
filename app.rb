@@ -6,11 +6,11 @@ require './student'
 require './teacher'
 
 class App
-
   def initialize
     @list_of_people = []
     @list_of_books = []
-    @classroom = Classroom.new("Math")
+    @list_of_rentals = []
+    @classroom = Classroom.new('Math')
   end
 
   def list_books
@@ -38,9 +38,6 @@ class App
 
   def create_new_rental(person, book, date)
     rental = Rental.new(person, book, date)
-  end
-
-  def list_rentals(id)
-
+    @list_of_rentals << rental
   end
 end
