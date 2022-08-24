@@ -23,12 +23,12 @@ class App
 
   def create_new_student(age, name, parent_permission)
     student = Student.new(@classroom, age, name, parent_permission)
-    @list_of_people << %w(S student)
+    @list_of_people << student
   end
 
   def create_new_teacher(specialization, age, name)
     teacher = Teacher.new(specialization, age, name)
-    @list_of_people << %w(T teacher)
+    @list_of_people << teacher
   end
 
   def create_new_book(title, author)

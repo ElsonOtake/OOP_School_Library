@@ -29,9 +29,9 @@ class Main
   end
 
   def list_all_people
-    p @app.list_people
-    puts "[Student] Name: Rose, ID: 250, Age: 17"
-    puts "[Teacher] Name: Doctor, ID: 106, Age: 845"
+    @app.list_people.each do |people|
+      puts "[#{people.class}] Name: #{people.name}, ID: #{people.id}, Age: #{people.age}"
+    end
     puts
   end
 
