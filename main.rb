@@ -81,21 +81,20 @@ class Main
 
   def create_a_rental
     puts "Select a book from the following list by number"
-    puts "0) Title: \"Lord of the rings\", Author: Tolkien"
-    puts "1) Title: \"Game of thrones\", Author: George martin"
-    puts "2) Title: \"Sapiens\", Author: Yuval Noah Harari"
+    @app.list_books.each_with_index do |book, index|
+      puts "#{index}) Title: \"#{book.title}\", Author: #{book.author}"
+    end
     begin
-      list_size = 3
+      list_size = @app.list_books.length
       book = gets.chomp.strip
     end until book.match?(/^\d+$/) && (0..list_size - 1).any? { |a| a == book.to_i}
     puts
     puts "Select a person from the following list by number (not id)"
-    puts "0) [Student] Name: Rose, ID: 250, Age: 17"
-    puts "1) [Teacher] Name: Doctor, ID: 106, Age: 845"
-    puts "2) [Student] Name: Rose, ID: 250, Age: 17"
-    puts "3) [Teacher] Name: Doctor, ID: 106, Age: 845"
+    @app.list_people.each_with_index do |people, index|
+      puts "#{index}) [#{people.class}] Name: #{people.name}, ID: #{people.id}, Age: #{people.age}"
+    end
     begin
-      list_size = 4
+      list_size = @app.list_people.length
       person = gets.chomp.strip
     end until person.match?(/^\d+$/) && (0..list_size - 1).any? { |a| a == person.to_i}
     puts
@@ -103,7 +102,8 @@ class Main
       print "Date: yyyy/mm/dd "
       date = gets.chomp.strip
     end until date.match?(/^(19|20)\d\d\/(0[1-9]|1[012])\/(0[1-9]|[1-2][0-9]|3[0-1])$/)
-    puts "Rental created successfully #{book} #{person} #{date}"
+    @app.create_new_rental(@app.list_people[person], @app.list_books[book], date)
+    puts "Rental created successfully"
     puts
   end
 
