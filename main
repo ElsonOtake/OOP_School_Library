@@ -42,7 +42,7 @@ class Main
 
   def menu
     menu_content
-    @option = check_input('') { %w[1 2 3 4 5 6 7].include?(@option) }
+    @option = check_input('') { %w[2 3 5 6 7].include?(@option) }
   end
 
   def list_all_books
