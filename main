@@ -125,8 +125,7 @@ class Main
 
   def start_main
     loop do
-      @option = menu
-      case @option
+      case @option = menu
       when '1'
         list_all_books
       when '2'
