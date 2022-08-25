@@ -119,11 +119,12 @@ class Main
   def list_all_rentals
     @id = check_input('Id of person: ') { @option.match?(/^\d+$/) }
     puts 'Rentals:'
-    list_id = @app.list_rentals.select { |rental| rental.person.id == @id.to_i }
-    list_id.each { |rental| puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}" }
+    @app.list_rentals_by_id(@id.to_i).each do |rental|
+      puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}"
+    end
   end
 
-  def start_main
+  def main
     loop do
       case @option = menu
       when '1'
@@ -148,5 +149,5 @@ class Main
 end
 
 puts 'Welcome to School Library App!'
-main = Main.new
-main.start_main
+school_library = Main.new
+school_library.main

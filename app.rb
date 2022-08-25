@@ -21,10 +21,6 @@ class App
     @list_of_people
   end
 
-  def list_rentals
-    @list_of_rentals
-  end
-
   def create_new_student(age, name, parent_permission)
     student = Student.new(@classroom, age, name, parent_permission)
     @list_of_people << student
@@ -43,5 +39,9 @@ class App
   def create_new_rental(person, book, date)
     rental = Rental.new(person, book, date)
     @list_of_rentals << rental
+  end
+
+  def list_rentals_by_id(id)
+    @list_of_rentals.select { |rental| rental.person.id == id }
   end
 end
