@@ -107,6 +107,10 @@ class Main
   end
 
   def create_a_rental
+    puts 'The book list is empty!' if @app.list_books.length.zero?
+    puts 'The people list is empty!' if @app.list_people.length.zero?
+    return unless !@app.list_books.length.zero? && !@app.list_people.length.zero?
+
     @book = list_rental_books
     puts
     @person = list_rental_people
