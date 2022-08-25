@@ -31,21 +31,6 @@ class Main
     puts '7 - Exit'
   end
 
-  def menu
-    menu_content
-    @option = check_input('') { %w[1 2 3 4 5 6 7].include?(@option) }
-  end
-
-  def list_all_books
-    @app.list_books.each { |book| puts "Title: \"#{book.title}\", Author: #{book.author}" }
-  end
-
-  def list_all_people
-    @app.list_people.each do |people|
-      puts "[#{people.class}] Name: #{people.name}, ID: #{people.id}, Age: #{people.age}"
-    end
-  end
-
   def check_input(str)
     loop do
       print str
@@ -53,6 +38,23 @@ class Main
       break if yield
     end
     @option
+  end
+
+  def menu
+    menu_content
+    @option = check_input('') { %w[1 2 3 4 5 6 7].include?(@option) }
+  end
+
+  def list_all_books
+    puts "The book list is empty!" if @app.list_books.length == 0
+    @app.list_books.each { |book| puts "Title: \"#{book.title}\", Author: #{book.author}" }
+  end
+
+  def list_all_people
+    puts "The people list is empty!" if @app.list_people.length == 0
+    @app.list_people.each do |people|
+      puts "[#{people.class}] Name: #{people.name}, ID: #{people.id}, Age: #{people.age}"
+    end
   end
 
   def create_a_person
@@ -119,6 +121,7 @@ class Main
   def list_all_rentals
     @id = check_input('Id of person: ') { @option.match?(/^\d+$/) }
     puts 'Rentals:'
+    puts "The rental list is empty!" if @app.list_rentals_by_id(@id.to_i).length == 0
     @app.list_rentals_by_id(@id.to_i).each do |rental|
       puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}"
     end
