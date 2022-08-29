@@ -1,13 +1,21 @@
 #! /usr/bin/env ruby
 
-require './operation'
+require './all_rentals'
 require './check_input'
+require './app'
+require './all_books'
+require './all_peoples'
+
+
 
 class Main
   include CheckInput
 
   def initialize
-    @operation = Operation.new
+    @app = App.new
+    @allrentals = AllRentals.new(@app)
+    @allbooks = AllBooks.new(@app)
+    @allpeople = AllPeoples.new(@app)
     @option = ''
   end
 
@@ -31,17 +39,17 @@ class Main
     loop do
       case @option = menu
       when '1'
-        @operation.list_all_books
+        @allbooks.list_all_books
       when '2'
-        @operation.list_all_people
+        @allpeople.list_all_people
       when '3'
-        @operation.create_a_person
+        @allpeople.create_a_person
       when '4'
-        @operation.create_a_book
+        @allbooks.create_a_book
       when '5'
-        @operation.create_a_rental
+        @allrentals.create_a_rental
       when '6'
-        @operation.list_all_rentals
+        @allrentals.list_all_rentals
       else
         puts "Thank you for using this app!\n"
         break
