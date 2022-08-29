@@ -41,7 +41,13 @@ Cloning a repository
 - Type `git clone`, and then paste the URL you copied earlier;
 
 
-## Author
+## Authors
+
+👤 **Darik Mohammed**
+
+- GitHub: [@githubhandle](https://github.com/darikmohammed)
+- Twitter: [@twitterhandle](https://twitter.com/r_darik)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/darik-mohammed/)
 
 👤 **Elson Otake**
 
