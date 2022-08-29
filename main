@@ -6,8 +6,6 @@ require './app'
 require './all_books'
 require './all_peoples'
 
-
-
 class Main
   include CheckInput
 

@@ -3,7 +3,7 @@ require './check_input'
 class AllBooks
   include CheckInput
 
-  def initialize (app)
+  def initialize(app)
     @app = app
     @title = ''
     @author = ''
@@ -20,5 +20,4 @@ class AllBooks
     @app.create_new_book(@title, @author)
     puts 'Book created successfully'
   end
-
 end

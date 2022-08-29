@@ -3,7 +3,7 @@ require './check_input'
 class AllPeoples
   include CheckInput
 
-  def initialize (app)
+  def initialize(app)
     @app = app
     @type = ''
     @age = ''
@@ -11,7 +11,6 @@ class AllPeoples
     @permission = ''
     @specialization = ''
     @id = ''
-
   end
 
   def list_all_people
