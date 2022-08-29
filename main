@@ -5,7 +5,7 @@ require './check_input'
 
 class Main
   include CheckInput
-  
+
   def initialize
     @operation = Operation.new
     @option = ''
