@@ -5,6 +5,8 @@ module Json_IO
   def writer
     File.write("Data/books.json", "", mode: "w")
     File.write("Data/peoples.json", "", mode: "w")
+    File.write("Data/rentals.json", "", mode: "w")
+
     @app.list_books.each do |book|
       json_book = JSON.generate(book)
       File.write("Data/books.json", "#{json_book}\n", mode: "a")
@@ -12,6 +14,10 @@ module Json_IO
     @app.list_people.each do |people|
       json_peoples = JSON.generate(people)
       File.write("Data/peoples.json", "#{json_peoples}\n", mode: "a")
+    end
+    @app.list_of_rentals.each do |rental|
+      json_rental = JSON.generate(rental)
+      File.write("Data/rentals.json", "#{json_rental}\n", mode: "a")
     end
   end
 
@@ -29,5 +35,8 @@ module Json_IO
       peoples << JSON.parse(line, create_additions: true)
     end
      peoples
+  end
+  def reader_rental
+
   end
 end
