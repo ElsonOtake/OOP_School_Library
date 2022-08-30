@@ -16,7 +16,8 @@ module Json_IO
       File.write("Data/peoples.json", "#{json_peoples}\n", mode: "a")
     end
     @app.list_of_rentals.each do |rental|
-      json_rental = JSON.generate(rental)
+      array_rental = [rental.person.name, rental.book.title, rental.date]
+      json_rental = JSON.generate(array_rental)
       File.write("Data/rentals.json", "#{json_rental}\n", mode: "a")
     end
   end
@@ -37,6 +38,13 @@ module Json_IO
      peoples
   end
   def reader_rental
-
+    rentals= []
+    File.foreach("Data/rentals.json") do |line|
+      rental =  JSON.parse(line)
+      person= @app.list_people.select { |p| p.name == rental[0] }
+      books = @app.list_books.select { |b| b.title == rental[1]}
+      rentals << @app.create_new_rental(person[0], books[0], rental[2])
+    end
+    rentals
   end
 end

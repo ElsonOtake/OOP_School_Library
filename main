@@ -19,6 +19,7 @@ class Main
     @option = ''
     @app.list_of_books = reader_books
     @app.list_of_people = reader_peoples
+    reader_rental
   end
 
   def menu_content
