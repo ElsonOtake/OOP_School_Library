@@ -17,6 +17,7 @@ class Main
     @allbooks = AllBooks.new(@app)
     @allpeople = AllPeoples.new(@app)
     @option = ''
+    @app.list_of_books = reader_books
     @app.list_of_people = reader_peoples
   end
 

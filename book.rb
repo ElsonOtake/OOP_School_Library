@@ -19,7 +19,7 @@ class Book
   def to_json(*args)
     {
       JSON.create_id  => self.class.name,
-      'a'             => [ bar, baz ]
+      'a'             => [ title, author ]
     }.to_json(*args)
   end
   # Deserialize JSON string by constructing new Foo object with arguments.

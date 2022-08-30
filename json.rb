@@ -15,6 +15,14 @@ module Json_IO
     end
   end
 
+  def reader_books
+    books = []
+    File.foreach("Data/books.json") do |line|
+      books << JSON.parse(line, create_additions: true)
+    end
+    books
+  end
+
   def reader_peoples
     peoples = []
     File.foreach("Data/peoples.json") do |line|
