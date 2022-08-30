@@ -5,9 +5,11 @@ require './check_input'
 require './app'
 require './all_books'
 require './all_peoples'
+require './json'
 
 class Main
   include CheckInput
+  include Json_IO
 
   def initialize
     @app = App.new
@@ -49,6 +51,7 @@ class Main
       when '6'
         @allrentals.list_all_rentals
       else
+        writer
         puts "Thank you for using this app!\n"
         break
       end
