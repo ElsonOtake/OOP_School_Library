@@ -6,6 +6,7 @@ require './student'
 require './teacher'
 
 class App
+  attr_writer :list_of_people
   def initialize
     @list_of_people = []
     @list_of_books = []
