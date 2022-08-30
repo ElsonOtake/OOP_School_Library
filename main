@@ -9,7 +9,7 @@ require './json'
 
 class Main
   include CheckInput
-  include Json_IO
+  include JsonIO
 
   def initialize
     @app = App.new

@@ -1,2 +1,2 @@
-{"json_class":"Student","a":["#<Classroom:0x0000000140056db0>","23","Darik","n"]}
-{"json_class":"Teacher","a":["Doctor","44","Abebe","true"]}
+{"json_class":"Student","a":["#<Classroom:0x000000010bdf4470>","23","Laura","y"]}
+{"json_class":"Teacher","a":["Ruby","64","Paul","true"]}

@@ -8,6 +8,7 @@ require './teacher'
 class App
   attr_writer :list_of_people, :list_of_books
   attr_accessor :list_of_rentals
+
   def initialize
     @list_of_people = []
     @list_of_books = []

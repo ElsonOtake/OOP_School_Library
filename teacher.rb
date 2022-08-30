@@ -14,10 +14,11 @@ class Teacher < Person
   # Serialize Foo object with its class name and arguments
   def to_json(*args)
     {
-      JSON.create_id  => self.class.name,
-      'a'             => [ @specialization, age,name,@parent_permission ]
+      JSON.create_id => self.class.name,
+      'a' => [@specialization, age, name, @parent_permission]
     }.to_json(*args)
   end
+
   # Deserialize JSON string by constructing new Foo object with arguments.
   def self.json_create(object)
     new(*object['a'])
