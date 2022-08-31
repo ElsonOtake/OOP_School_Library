@@ -79,7 +79,6 @@ describe Person do
       expect(person.name).to eq "mario"
       expect(book.rentals.length).to eq 1
     end
-
   end
 
 end
