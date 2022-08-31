@@ -41,19 +41,34 @@ describe Person do
       expect(@person.age).to be 17
       expect(@person.age).to eq 17
       expect(@person.age).to eql 17
+    end
+
+    it "Person is not possible to use a services" do
       expect(@person.can_use_services?).to be_falsey
+    end
+
+    it "Correct_name should return the name of Person" do
       expect(@person.correct_name).to eq "rose"
     end
+
   end
 
   describe Person do
+    before :each do
+      @person = Person.new(36)
+    end
+
     it "Initialize with age" do
-      person = Person.new(36)
-      expect(person.age).to eq 36
-      expect(person.correct_name).to eq "Unknown"
-      expect(person.can_use_services?).to be_truthy
-      expect(person.can_use_services?).not_to be_falsey
-      expect(person.rentals.length).to eq 0
+      expect(@person.age).to eq 36
+    end
+
+    it "Person should use Services" do
+      expect(@person.can_use_services?).to be_truthy
+      expect(@person.can_use_services?).not_to be_falsey
+    end
+
+    it "Person rental should be initialized with 0 length" do
+      expect(@person.rentals.length).to eq 0
     end
 
     it "Initialize with age" do
@@ -62,15 +77,9 @@ describe Person do
       person.add_rentals(book, "2022/08/31")
       expect(person.rentals.length).to eq 1
       expect(person.name).to eq "mario"
+      expect(book.rentals.length).to eq 1
     end
 
-  end
-
-  describe Person do
-    it "Test correct name method" do
-      person = Person.new(22, 'maximilianus')
-      expect(person.correct_name).to eq 'maximilianus'
-    end
   end
 
 end
